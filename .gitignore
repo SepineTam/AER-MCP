@@ -8,3 +8,21 @@ wheels/
 
 # Virtual environments
 .venv
+
+# dev
+dev/
+
+# test
+test/
+tests/
+test.py
+
+# VScode
+.vscode
+
+# PyCharm
+.idea
+
+# OS X
+*.DS_Store
+
