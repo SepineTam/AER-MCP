@@ -48,19 +48,12 @@ class AEA:
         else:
             base_url = "https://www.aeaweb.org/journals/aer/search-results?"
 
-        params = []
-        if search_in_title:
-            params.append("ArticleSearch[within][articletitle]=1")
-        if search_in_abstract:
-            params.append("ArticleSearch[within][articleabstract]=1")
-        if search_in_author:
-            params.append("ArticleSearch[within][authorlast]=1")
-        if jel_class is not None:
-            params.append(f"JelClass[value]={jel_class}")
-        if journal:
-            params.append("journal=1")
+        params = [f"ArticleSearch[within][articletitle]={int(search_in_title)}",
+                  f"ArticleSearch[within][articleabstract]={int(search_in_abstract)}",
+                  f"ArticleSearch[within][authorlast]={int(search_in_author)}",
+                  f"JelClass[value]={jel_class or 0}",
+                  f"journal={int(journal)}", f"ArticleSearch[q]={q}"]
 
-        params.append(f"ArticleSearch[q]={q}")
         search_url = base_url + "&".join(params)
 
         fake_headers = fake_ua.get_random_headers()
