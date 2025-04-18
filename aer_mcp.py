@@ -32,7 +32,7 @@ def aea_search(q: str, journal_list: list = None, max_search: int = None) -> dic
 
     Args:
         q (str):
-            The question for search
+            The question for search, the language of search should be English.
         journal_list (list):
             The journal list which search from,
             The default is ['aer']
